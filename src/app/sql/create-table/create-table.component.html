@@ -1,0 +1,102 @@
+<div class="row">
+    <div class="col-md-12">
+        <div class="card">
+            <div class="p-2 bg-info bg-opacity-10 border-bottom border-dark">
+                <div class="row mt-1">
+                    <div class="col-md-6">
+                        <h6>Table Name</h6>
+                    </div>
+                    <div class="col-md-6 text-end">
+                        <a routerLink="/table-list" class="btn btn-sm btn-outline-primary">Go to list</a>
+                    </div>
+                </div>
+            </div>
+            <div class="card-body p-3">
+                <div class="row">
+                    <div class="col-6">
+                        <input type="text" class="form-control" (keyup)="updateTableName($event)" placeholder="Enter table name">
+                    </div>
+                    <div class="col-6 text-end">
+                      <button class="btn btn-sm btn-success" (click)="addRow()">Add Column</button>
+                    </div>
+                  </div>
+                  <div class="pt-2">
+                    <form>
+                      <table class="table table-bordered">
+                        <thead>
+                          <tr class="table-dark">
+                            <th scope="col">Column Name</th>
+                            <th scope="col">Type</th>
+                            <th scope="col">Length</th>
+                            <th scope="col">PrimaryKey</th>
+                            <th scope="col">Identity</th>
+                            <th scope="col">Null</th>
+                            <th scope="col">DefaultValue</th>
+                            <th scope="col">Action</th>
+                          </tr>
+                        </thead>
+                        <tbody [formGroup]="tableForm">
+                          <ng-container formArrayName="columns" *ngFor="let group of getFormControls.controls; let i=index">
+                            <tr [formGroupName]="i">
+                              <td>
+                                <input type="text" class="form-control" formControlName="name" (blur)="columnNameChange($event,i)" placeholder="Enter First">
+                                <div class="text-danger" *ngIf="getFormControls.controls[i].get('name')?.touched">
+                                  <span *ngIf="getFormControls.controls[i].get('name')?.errors?.['required']">Required</span>
+                                  <span *ngIf="getFormControls.controls[i].get('name')?.errors?.['minlength']">3 Chars
+                                    Required</span>
+                                </div>
+                              </td>
+                              <td>
+                                <select formControlName="type"  class="form-control">
+                                    <option value="">Select Type</option>
+                                    <option value="INT">INT</option>
+                                    <option value="VARCHAR">VARCHAR</option>
+                                    <option value="NVARCHAR">NVARCHAR</option>
+                                    <option value="DECIMAL">DECIMAL</option>
+                                    <option value="DATE">DATE</option>
+                                  </select>
+                                  <div class="text-danger" *ngIf="getFormControls.controls[i].get('type')?.touched">
+                                    <span *ngIf="getFormControls.controls[i].get('type')?.errors?.['required']">Required</span>
+                                  </div>
+                              </td>
+                              <td>
+                                    <input type="text" class="form-control" formControlName="length" placeholder="Enter length">
+                                    <div class="text-danger" *ngIf="getFormControls.controls[i].get('length')?.touched">
+                                      <span *ngIf="getFormControls.controls[i].get('length')?.errors?.['required']">Required</span>
+                                    </div>
+                              </td>
+                              <td scope="row" class="align-middle">
+                                <input type="checkbox" class="form-check-input" (change)="checkPrimary($event,i)" formControlName="isPrimaryKey" />
+                              </td>
+                              <td scope="row" class="align-middle">
+                                <input type="checkbox" class="form-check-input" formControlName="isIdentity" />
+                              </td>
+                              <td scope="row" class="align-middle">
+                                <input type="checkbox" class="form-check-input" formControlName="isNull" />
+                              </td>
+                              <td>
+                                <input type="text" class="form-control" formControlName="defaultValue" placeholder="Enter Default value">
+                              </td>
+                              <td>
+                                <button class="btn btn-danger" (click)="removeColumn(i)">Remove</button>
+                              </td>
+                            </tr>
+                          </ng-container>
+                          <ng-container>
+                            <tr>
+                              <td colspan="9">
+                                <div class="row">
+                                  <div class="col-12 text-center">
+                                    <button class="btn btn-success" [disabled]="tableForm.invalid" (click)="onSaveForm()">Save</button>
+                                  </div>
+                                </div>
+                              </td>
+                            </tr>
+                          </ng-container>
+                        </tbody>
+                      </table>
+                    </form>
+                  </div>
+            </div>
+        </div>
+    </div>

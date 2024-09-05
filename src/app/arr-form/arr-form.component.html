@@ -1,0 +1,31 @@
+<div class="container mt-3">
+    <div class="row">
+        <div class="col-md-6">
+
+
+            <form [formGroup]="formGroup">
+                <div formArrayName="features">
+                    <div class="row no-gutters form-group"
+                        *ngFor="let feature of features.controls; let index = index; let last = last">
+                        <input type="text" class="form-control px-2 mx-3 col" [formControlName]="index" title="feature"
+                            required>
+
+                        IS Invalid - {{ getValidity(index) }}
+
+                        <div class="col-md-6 row no-gutters">
+                            <button class="col btn btn-outline-danger mx-2" (click)="removeFeature(index)">
+                                -
+                            </button>
+                            <button class="col btn btn-success" *ngIf="last" (click)="addFeature()">
+                                +
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+<pre>
+    {{formGroup.value | json}}
+</pre>

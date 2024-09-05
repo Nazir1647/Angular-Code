@@ -1,0 +1,51 @@
+<div class="card">
+    <div class="p-2 bg-info bg-opacity-10 border-bottom border-dark">
+        <div class="row mt-2">
+            <div class="col-md-6">
+                <h6>Student list</h6>
+            </div>
+            <div class="col-md-6 text-end">
+                <a class="btn btn-primary btn-sm" data-bs-toggle="modal" data-bs-target="#staticBackdrop"><i
+                        class="bi bi-plus-circle"></i> Add
+                    Student</a>
+                <button type="button" class="btn btn-sm btn-danger ms-1" (click)="DeleteAll()"><i class="bi bi-trash"></i>
+                    Delete</button>
+            </div>
+        </div>
+    </div>
+    <div class="card-body">
+        <div class="row mt-2">
+            <div class="col-md-12">
+                <table id="studentTable" class="table table-bordered">
+                    <thead>
+                        <tr>
+                            <th><input type="checkbox"  #headerCheckbox (change)="toggleAll(headerCheckbox.checked)" class="form-check-input"></th>
+                            <th>#</th>
+                            <th>Email</th>
+                            <th>Password</th>
+                            <th>Country</th>
+                            <th>State</th>
+                            <th>Action</th>
+                        </tr>
+                    </thead>
+                    <tbody class="table-group-divider">
+                        <tr *ngFor="let st of studentList;let i = index">
+                            <td><input type="checkbox" class="form-check-input"  #rowCheckboxes  [checked]="rowCheckboxStates[i]"  (change)="updateSelectAll()" value="{{st.id}}"></td>
+                            <td>{{i + 1}}</td>
+                            <td>{{st.email}}</td>
+                            <td>{{st.password}}</td>
+                            <td>{{st.country}}</td>
+                            <td>{{st.state}}</td>
+                            <td>
+                                <button class="btn btn-sm btn-success" data-bs-toggle="modal"
+                                    data-bs-target="#staticBackdrop" (click)="onSendDetails(st,'edit')"><i class="bi bi-pencil-square"></i></button>
+                                <button class="btn btn-sm btn-danger ms-1"
+                                    (click)="onSendDetails(st.id,'delete')"><i class="bi bi-trash"></i></button>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>

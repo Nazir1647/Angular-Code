@@ -1,0 +1,364 @@
+{
+  "user": [
+    {
+      "name": "ayan",
+      "email": "ayan@gmail.com",
+      "password": "1234",
+      "id": "c4e9"
+    },
+    {
+      "name": "demo",
+      "email": "demo@gmail.com",
+      "password": "1234",
+      "id": "fd40"
+    },
+    {
+      "name": "nazir",
+      "email": "nazir@gmail.com",
+      "password": "nazir",
+      "id": "e215"
+    }
+  ],
+  "employee": [
+    {
+      "name": "Nazir",
+      "age": 23,
+      "gender": 1,
+      "country": "1",
+      "state": "1",
+      "dob": "1995-12-18",
+      "hobbies": [
+        "3",
+        "1"
+      ],
+      "status": true,
+      "id": "09e0"
+    },
+    {
+      "name": "Muskan",
+      "age": 21,
+      "gender": 2,
+      "country": "2",
+      "state": "4",
+      "dob": "2000-10-19",
+      "hobbies": [
+        "3"
+      ],
+      "status": true,
+      "id": "a7d4"
+    },
+    {
+      "name": "Naved",
+      "age": 15,
+      "gender": 1,
+      "country": "3",
+      "state": "6",
+      "dob": "1996-09-18",
+      "hobbies": [
+        "1",
+        "4"
+      ],
+      "status": true,
+      "id": "eec7"
+    },
+    {
+      "name": "Neha",
+      "age": 18,
+      "gender": 2,
+      "country": "2",
+      "state": "3",
+      "dob": "1999-12-12",
+      "hobbies": [
+        "3"
+      ],
+      "status": true,
+      "id": "f766"
+    },
+    {
+      "name": "manoj",
+      "age": 55,
+      "gender": 1,
+      "country": "3",
+      "state": "6",
+      "dob": "1990-08-12",
+      "hobbies": [
+        "3"
+      ],
+      "status": true,
+      "id": "ed42"
+    },
+    {
+      "id": "c7b2",
+      "name": "Farman",
+      "age": 1,
+      "gender": 1,
+      "country": "2",
+      "state": "4",
+      "dob": "2024-07-30",
+      "hobbies": [
+        "1"
+      ],
+      "status": true
+    }
+  ],
+  "country": [
+    {
+      "name": "india",
+      "id": "1"
+    },
+    {
+      "name": "pakistan",
+      "id": "2"
+    },
+    {
+      "name": "nepal",
+      "id": "3"
+    },
+    {
+      "name": "saudi arabia",
+      "id": "4"
+    }
+  ],
+  "state": [
+    {
+      "name": "Uttar Pradesh",
+      "id": "1",
+      "cid": "1"
+    },
+    {
+      "name": "Delhi",
+      "id": "2",
+      "cid": "1"
+    },
+    {
+      "name": "karachi",
+      "id": "3",
+      "cid": "2"
+    },
+    {
+      "name": "lahaur",
+      "id": "4",
+      "cid": "2"
+    },
+    {
+      "name": "kathmandu",
+      "id": "5",
+      "cid": "3"
+    },
+    {
+      "name": "biratnagar",
+      "id": "6",
+      "cid": "3"
+    },
+    {
+      "name": "riyadh",
+      "id": "7",
+      "cid": "4"
+    },
+    {
+      "name": "madina",
+      "id": "8",
+      "cid": "4"
+    }
+  ],
+  "student": [
+    {
+      "email": "muskan@gmail.com",
+      "password": "123",
+      "country": "4",
+      "state": "8",
+      "id": "49c7"
+    },
+    {
+      "email": "naved@gmail.com",
+      "password": "1234",
+      "country": "3",
+      "state": "6",
+      "id": "0017"
+    },
+    {
+      "email": "neha@gmail.com",
+      "password": "9989",
+      "country": "3",
+      "state": "6",
+      "id": "063c"
+    },
+    {
+      "email": "g@gmil.com",
+      "password": "1334",
+      "country": "1",
+      "state": "1",
+      "id": "a4be"
+    }
+  ],
+  "tableData": [
+    {
+      "id": "1018",
+      "tableName": "employee",
+      "columns": [
+        {
+          "name": "id",
+          "type": "INT",
+          "length": "",
+          "isPrimaryKey": true,
+          "isIdentity": true,
+          "isNull": false,
+          "defaultValue": "",
+          "ischecked": false
+        },
+        {
+          "name": "name",
+          "type": "NVARCHAR",
+          "length": "50",
+          "isPrimaryKey": false,
+          "isIdentity": false,
+          "isNull": false,
+          "defaultValue": "",
+          "ischecked": false
+        },
+        {
+          "name": "age",
+          "type": "INT",
+          "length": "100",
+          "isPrimaryKey": false,
+          "isIdentity": false,
+          "isNull": true,
+          "defaultValue": "",
+          "ischecked": false
+        },
+        {
+          "name": "address",
+          "type": "NVARCHAR",
+          "length": "100",
+          "isPrimaryKey": false,
+          "isIdentity": false,
+          "isNull": true,
+          "defaultValue": "",
+          "ischecked": false
+        }
+      ]
+    },
+    {
+      "id": "6043",
+      "tableName": "student",
+      "columns": [
+        {
+          "name": "id",
+          "type": "INT",
+          "length": "100",
+          "isPrimaryKey": true,
+          "isIdentity": true,
+          "isNull": true,
+          "defaultValue": "",
+          "ischecked": false
+        },
+        {
+          "name": "name",
+          "type": "NVARCHAR",
+          "length": "50",
+          "isPrimaryKey": false,
+          "isIdentity": false,
+          "isNull": false,
+          "defaultValue": "",
+          "ischecked": false
+        },
+        {
+          "name": "age",
+          "type": "INT",
+          "length": "100",
+          "isPrimaryKey": false,
+          "isIdentity": false,
+          "isNull": true,
+          "defaultValue": "",
+          "ischecked": false
+        },
+        {
+          "name": "address",
+          "type": "NVARCHAR",
+          "length": "500",
+          "isPrimaryKey": false,
+          "isIdentity": false,
+          "isNull": true,
+          "defaultValue": "",
+          "ischecked": false
+        },
+        {
+          "name": "createdBy",
+          "type": "NVARCHAR",
+          "length": "20",
+          "isPrimaryKey": false,
+          "isIdentity": false,
+          "isNull": true,
+          "defaultValue": "",
+          "ischecked": false
+        },
+        {
+          "name": "createdDate",
+          "type": "DATE",
+          "length": "100",
+          "isPrimaryKey": false,
+          "isIdentity": false,
+          "isNull": true,
+          "defaultValue": "",
+          "ischecked": false
+        },
+        {
+          "name": "price",
+          "type": "DECIMAL",
+          "length": "100",
+          "isPrimaryKey": false,
+          "isIdentity": false,
+          "isNull": true,
+          "defaultValue": "",
+          "ischecked": false
+        }
+      ]
+    },
+    {
+      "id": "8018",
+      "tableName": "School",
+      "columns": [
+        {
+          "name": "id",
+          "type": "INT",
+          "length": "",
+          "isPrimaryKey": true,
+          "isIdentity": true,
+          "isNull": false,
+          "defaultValue": "",
+          "ischecked": false
+        },
+        {
+          "name": "name",
+          "type": "NVARCHAR",
+          "length": "50",
+          "isPrimaryKey": false,
+          "isIdentity": false,
+          "isNull": false,
+          "defaultValue": "",
+          "ischecked": false
+        },
+        {
+          "name": "address",
+          "type": "NVARCHAR",
+          "length": "100",
+          "isPrimaryKey": false,
+          "isIdentity": false,
+          "isNull": true,
+          "defaultValue": "",
+          "ischecked": false
+        },
+        {
+          "name": "teacher",
+          "type": "INT",
+          "length": "0",
+          "isPrimaryKey": false,
+          "isIdentity": false,
+          "isNull": true,
+          "defaultValue": "",
+          "ischecked": false
+        }
+      ]
+    }
+  ]
+}

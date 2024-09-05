@@ -1,0 +1,69 @@
+<!-- Modal -->
+<div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1"
+  aria-labelledby="staticBackdropLabel" aria-hidden="true">
+  <div class="modal-dialog modal-lg">
+    <div class="modal-content">
+      <div class="modal-header">
+        <!-- header -->
+      </div>
+      <div class="modal-body">
+        <div class="card">
+          <div class="p-2 bg-info bg-opacity-10 border-bottom border-dark">
+            Student Form
+          </div>
+          <div class="card-body">
+            <form [formGroup]="studentForm" class="row g-3">
+              <div class="col-md-12">
+                <label for="email" class="form-label">Email</label>
+                <input type="email" class="form-control form-control-sm" formControlName="email">
+                <div *ngIf="studentControl['email'].errors && (studentControl['email'].touched || submitted)">
+                  <span class="text-danger" *ngIf="studentControl['email'].errors?.['required']">Email is
+                    required</span>
+                  <span class="text-danger" *ngIf="studentControl['email'].errors?.['pattern']">Invalid Email</span>
+                </div>
+              </div>
+              <div class="col-md-12">
+                <label for="password" class="form-label">Password</label>
+                <input type="password" class="form-control form-control-sm" formControlName="password">
+                <div *ngIf="studentControl['password'].errors && (studentControl['password'].touched || submitted)">
+                  <span class="text-danger" *ngIf="studentControl['password'].errors?.['required']">Password is
+                    required</span>
+                  <!-- <span class="text-danger" *ngIf="studentControl['password'].errors?.['pattern']">Invalid password</span> -->
+                </div>
+              </div>
+              <div class="col-md-12">
+                <label for="state" class="form-label">Country</label>
+                <ng-select formControlName="country" (change)="bindState($event)">
+                  <ng-option value="">---select---</ng-option>
+                  <ng-option [value]="c.id" *ngFor="let c of countryList">{{c.name}}</ng-option>
+               </ng-select>
+                <div *ngIf="studentControl['country'].errors && (studentControl['country'].touched || submitted)">
+                  <span class="text-danger" *ngIf="studentControl['country'].errors?.['required']">Country is
+                    required</span>
+                </div>
+              </div>
+              <div class="col-md-12">
+                <label for="state" class="form-label">State</label>
+                <ng-select formControlName="state">
+                  <ng-option value="">---select---</ng-option>
+                  <ng-option [value]="item.id" *ngFor="let item of stateList">{{item.name}}</ng-option>
+               </ng-select>
+                <div *ngIf="studentControl['state'].errors && (studentControl['state'].touched || submitted)">
+                  <span class="text-danger" *ngIf="studentControl['state'].errors?.['required']">State is
+                    required</span>
+                </div>
+              </div>
+              <div class="col-12 text-end">
+                <button type="button" #closeModal id="close" class="btn btn-secondary" data-bs-dismiss="modal"
+                  (click)="onClose()">Close</button>
+                <button type="button" class="btn btn-primary ms-1" [disabled]="!studentForm.valid"
+                  (click)="onSubmit()">{{buttonName}}</button>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<app-student-list [studentList]="studentList" (studentDetails)="onDetailsGet($event)"></app-student-list>

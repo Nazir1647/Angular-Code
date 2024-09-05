@@ -1,0 +1,84 @@
+<form [formGroup]="bookForm">
+    <div class="card">
+        <div class="p-2 bg-info bg-opacity-10 border-bottom border-dark">
+            <div class="row mt-1">
+                <div class="col-md-6">
+                    <h6>Todo form</h6>
+                </div>
+            </div>
+        </div>
+        <div class="card-body p-3">
+            <div class="row">
+                <div class="col-sm-4">
+                    <div class="form-group">
+                        <label for="name" class="form-label">Books</label>
+                        <select class="form-select" formControlName="book">
+                            <option value="">---select books---</option>
+                            <option [value]="b.id" *ngFor="let b of booksArr">{{b.name}}</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="col-sm-4">
+                    <div class="form-group">
+                        <label for="age" class="form-label">Quantity</label>
+                        <input type="number" class="form-control" formControlName="quantity">
+                    </div>
+                </div>
+                <div class="col-sm-4">
+                    <div class="form-group">
+                        <label for="name" class="form-label">Price</label>
+                        <input type="text" class="form-control" formControlName="price">
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="text-center m-3">
+            <button type="submit" class="btn btn-primary" [disabled]="!bookForm.valid" (click)="onSave()">Save</button>
+        </div>
+    </div>
+</form>
+
+<div class="card mt-3">
+    <div class="p-2 bg-info bg-opacity-10 border-bottom border-dark">
+        <div class="row mt-1">
+            <div class="col-md-6">
+                <h6>Todo List</h6>
+            </div>
+        </div>
+    </div>
+    <div class="card-body p-3">
+        <div class="row">
+            <table id="todo"  class="table table-bordered">
+                <thead>
+                    <tr class="bg-secondary text-white">
+                        <th>SrNo.</th>
+                        <th>Books</th>
+                        <th>Quantity</th>
+                        <th>Price</th>
+                        <th>Total Price</th>
+                        <th>Action</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr *ngFor="let b of booksList;let i = index">
+                        <td>{{i + 1}}</td>
+                        <td>{{b.book}}</td>
+                        <td>{{b.quantity | indianCurrency}}</td>
+                        <td>{{b.price | indianCurrency}}</td>
+                        <td>{{b.price * b.quantity | indianCurrency}}</td>
+                        <td>
+                            <button type="button" class="btn btn-sm btn-success" (click)="onEdit(b)"><i class="bi bi-pencil"></i></button>
+                            <button type="button" class="btn btn-sm btn-danger ms-2" (click)="onDelete(b.id)"><i class="bi bi-trash"></i></button>
+                        </td>
+                    </tr>              
+                </tbody>
+                <tbody>
+                    <tr *ngIf="booksList?.length > 0">
+                        <td colspan="4"><strong>Gross Price</strong></td>
+                        <td colspan="2"><strong>{{getGrossPrice() | indianCurrency:true }}</strong></td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>

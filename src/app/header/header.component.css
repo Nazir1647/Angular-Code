@@ -1,0 +1,21 @@
+.nav-item.active .nav-link {
+    background-color: #007bff; /* Bootstrap primary color */
+    color: #fff; /* Text color for active link */
+  }
+  
+  .nav-item .nav-link {
+    padding: 10px 15px; /* Adjust padding as needed */
+    text-decoration: none;
+    color: #333; /* Default text color */
+  }
+  
+  .nav-item .nav-link:hover {
+    text-decoration: underline; /* Underline on hover */
+    color: #007bff; /* Hover color */
+  }
+
+  .custom-dropdown-menu {
+    left: -25%; /* Adjust this value as needed */
+    right: auto;
+    margin-left: -0.1rem; /* Adjust this value to align properly with the toggle */
+  }

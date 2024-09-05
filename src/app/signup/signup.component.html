@@ -1,0 +1,55 @@
+<div class="card">
+    <div class="p-2 bg-info bg-opacity-10 border-bottom border-dark">
+        <h6 >Signup Form</h6>
+    </div>
+    <form [formGroup]="signupForm" (ngSubmit)="onSave()">
+        <div class="card-body">
+            <div class="form-group">
+                <label for="name" class="form-label">Name</label>
+                <input type="text" class="form-control" formControlName="name">
+                <div>
+                    <span class="text-danger"
+                        *ngIf="signupFormControls['name'].errors?.['required'] && signupFormControls['name'].touched">
+                        Name is required</span>
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="name" class="form-label">Email</label>
+                <input type="email" class="form-control" formControlName="email">
+                <div>
+                    <span class="text-danger"
+                        *ngIf="signupFormControls['email'].errors?.['required'] && signupFormControls['email'].touched">
+                        Email is required</span>
+                    <span class="text-danger"
+                        *ngIf="signupFormControls['email'].errors?.['pattern'] && (signupFormControls['email'].dirty || signupFormControls['email'].touched)">
+                        Email is not valid</span>
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="name" class="form-label">Password</label>
+                <input type="password" class="form-control" formControlName="password">
+                <div>
+                    <span class="text-danger"
+                        *ngIf="signupFormControls['password'].errors?.['required'] && signupFormControls['password'].touched">
+                        Password is required</span>
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="name" class="form-label">Confirm Password</label>
+                <input type="password" class="form-control" formControlName="confirmPassword">
+                <div>
+                    <span class="text-danger"
+                        *ngIf="signupFormControls['confirmPassword'].errors?.['required'] && signupFormControls['confirmPassword'].touched">
+                        Confirm Password is required</span>
+                    <span class="text-danger"
+                        *ngIf="signupForm.errors?.['mismatch'] && (signupFormControls['confirmPassword'].dirty || signupFormControls['confirmPassword'].touched)">
+                        Passwords don't match.</span>
+                </div>
+            </div>
+            <div class="form-group my-2 d-grid">
+                <button type="submit" class="btn btn-primary" [disabled]="!signupForm.valid">{{btnName}}</button>
+            </div>
+        </div>
+    </form>
+</div>
+<app-user-list (editData)="onEdit($event)"></app-user-list>
